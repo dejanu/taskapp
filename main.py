@@ -18,11 +18,11 @@ class TaskCreate(BaseModel):
 class Task(BaseModel):
     id: int
     title: str
-
+    
 # In-memory task storage
 tasks: List[Task] = []
 next_id = 1
-# ---
+
 # Create task
 @app.post("/tasks", response_model=Task, status_code=status.HTTP_201_CREATED)
 def create_task(task: TaskCreate):
@@ -36,7 +36,3 @@ def create_task(task: TaskCreate):
 @app.get("/tasks", response_model=List[Task])
 def list_tasks():
     return tasks
-# To run locally:
-# 1. Install dependencies: pip install -r requirements.txt
-# 2. Start server: uvicorn main:app --reload
-# ---
