@@ -4,9 +4,7 @@
 This is a minimal FastAPI application with a single `/health` endpoint that returns a simple health status.
 
 ## Features
-- **GET /health**: Returns `{"status": "ok"}`
-- **POST /tasks**: Create a task (title: string)
-- **GET /tasks**: List all tasks
+- **Batch Task Creation**: Use the provided shell script to create multiple tasks at once.
 
 ## Local Development
 ## Example: Creating Tasks
@@ -32,6 +30,18 @@ To list all tasks:
 ```bash
 curl http://localhost:8000/tasks
 ```
+
+## Batch Task Creation
+
+To quickly create 5 tasks, use the provided shell script:
+
+```bash
+./create_tasks.sh
+```
+
+This will send 5 POST requests to the API, creating tasks titled "Task 1" through "Task 5".
+
+You can inspect or modify the script in [create_tasks.sh](create_tasks.sh).
 1. Create a virtual environment (recommended):
    ```bash
    python3 -m venv venv
