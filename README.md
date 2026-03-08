@@ -80,3 +80,37 @@ You can inspect or modify the script in [create_tasks.sh](create_tasks.sh).
 
 ## License
 MIT
+
+```mermaid
+                                         START
+                                           │
+                             ┌─────────────┴─────────────┐
+                             │                           │
+                       Task Type?                   Task Type?
+                 Thinking / Reasoning            Coding / IDE Work
+           (ideas, explanations, research)  (implement, refactor, autocomplete)
+                             │                           │
+          ┌──────────────────┴──────────────┐            │
+          │                                 │            │
+Need Web / Docs Info?                Private / Sensitive? IDE Supports Agent?
+          │                                 │            │
+          ▼                                 ▼            │
+      Yes → Use Google Gemini         Yes → Use Claude AI  │
+      (multimodal, web+docs)          (private reasoning)│
+          │                                 │            │
+Optional: Summarization / doc analysis     ▼            │
+ ───────────────────────────────► ChatGPT / Claude AI   │
+          │                                                 │
+          ▼                                                 ▼
+         Done                                          Coding / IDE Branch
+                                                       ┌─────────────┬─────────────┐
+                                                       │                           │
+                                               IDE Agent Available?            No Agent
+                                                       │                           │
+                                                    Yes → IDE Agent             Manual coding
+                                                    │
+                     ┌───────────────────────────────┴───────────────────────────────┐
+                     │                                                               │
+               GitHub Copilot                                                Claude AI Agent
+            (inline code completions, repo context)                 (reasoning, tests, doc generation)
+```
